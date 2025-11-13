@@ -118,13 +118,14 @@ export const TemplateSelector = ({
           </div>
         </div>
         <div className="bg-gradient-to-br from-muted to-background p-8 rounded-lg">
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          <div className="bg-gradient-to-br from-muted to-background rounded-lg overflow-hidden p-4 sm:p-6">
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {(() => {
               const isServer = selectedTemplate.startsWith("sb:");
               if (!isServer) {
                 return (
                   <>
-                    <div ref={previewRef} className="relative">
+                    <div ref={previewRef} className="relative w-full max-w-full overflow-hidden">
                       <div className="wm-screen-only" data-watermark="screen-only" />
                       {selectedConfig && (
                         <ClassicCard
@@ -137,7 +138,7 @@ export const TemplateSelector = ({
                         />
                       )}
                     </div>
-                    <div ref={backRef} className="relative">
+                    <div ref={backRef} className="relative w-full max-w-full overflow-hidden">
                       <div className="wm-screen-only" data-watermark="screen-only" />
                       {selectedConfig && (
                         <BackSideCard
@@ -167,7 +168,7 @@ export const TemplateSelector = ({
               const ff = hasOverrides ? selectedFont : (cfg.fontFamily || "Inter, Arial, sans-serif");
               return (
                 <>
-                  <div ref={previewRef} className="w-full relative">
+                  <div ref={previewRef} className="w-full max-w-full relative overflow-hidden">
                     <div className="wm-screen-only" data-watermark="screen-only" />
                     <div
                       className="w-full aspect-[1.75/1] rounded-lg border overflow-hidden p-4 relative"
@@ -195,7 +196,7 @@ export const TemplateSelector = ({
                       </div>
                     </div>
                   </div>
-                  <div ref={backRef} className="w-full relative">
+                  <div ref={backRef} className="w-full max-w-full relative overflow-hidden">
                     <div className="wm-screen-only" data-watermark="screen-only" />
                     <div
                       className="w-full aspect-[1.75/1] rounded-lg border overflow-hidden"
@@ -224,6 +225,7 @@ export const TemplateSelector = ({
                 </>
               );
             })()}
+            </div>
           </div>
         </div>
       </div>
