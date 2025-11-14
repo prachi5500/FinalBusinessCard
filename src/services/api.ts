@@ -1,4 +1,10 @@
-const BASE = import.meta.env.VITE_API_BASE as string;
+const envBase = import.meta.env.VITE_API_BASE as string | undefined;
+const inferredBase = typeof window !== 'undefined'
+  ? (window.location.origin.includes(':5173')
+      ? window.location.origin.replace(':5173', ':8080')
+      : window.location.origin)
+  : '';
+const BASE = (envBase && envBase.length > 0 ? envBase : inferredBase).replace(/\/$/, "");
 
 function getToken() {
   try {

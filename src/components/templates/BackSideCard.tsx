@@ -284,7 +284,7 @@ export const BackSideCard: React.FC<Props> = ({ data, config, background, textCo
     <div className="relative z-10 flex items-center justify-center h-full w-full">
       {compact ? (
         <div className="w-full flex items-center justify-center gap-4 px-2" style={{ lineHeight: 1.2 }}>
-          <div className="text-sm space-y-1 text-center">
+          <div className="space-y-1 text-center" style={{ fontSize }}>
             <div><strong style={{ color: appliedAccent }}>✉</strong> {data.email || "email@example.com"}</div>
             <div><strong style={{ color: appliedAccent }}>✆</strong> {data.phone || "+91 00000 00000"}</div>
             <div><strong style={{ color: appliedAccent }}>⌂</strong> {data.website || "your-website.com"}</div>
@@ -297,7 +297,7 @@ export const BackSideCard: React.FC<Props> = ({ data, config, background, textCo
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center w-full">
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center", fontSize }}>
             <div><strong style={{ color: appliedAccent }}>✉</strong> {data.email || "email@example.com"}</div>
             <div><strong style={{ color: appliedAccent }}>✆</strong> {data.phone || "+91 00000 00000"}</div>
             <div><strong style={{ color: appliedAccent }}>⌂</strong> {data.website || "your-website.com"}</div>
